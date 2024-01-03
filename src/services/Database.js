@@ -8,13 +8,12 @@ export async function initDatabase(csvData) {
   // Create a new database
   const db = new SQL.Database();
 
-  const tableName = 'your_table_name'; // Set your table name
+  const tableName = 'data';
 
-  // Create a table and insert the data
-  db.exec(`CREATE TABLE ${tableName} (${Object.keys(csvData[0]).join(', ')});`);
+  db.exec(`CREATE TABLE ${data} (${Object.keys(csvData[0]).join(', ')});`);
   csvData.forEach((row) => {
     const values = Object.values(row).map((value) => JSON.stringify(value));
-    db.exec(`INSERT INTO ${tableName} VALUES (${values.join(', ')});`);
+    db.exec(`INSERT INTO ${data} VALUES (${values.join(', ')});`);
   });
 
   return db;
