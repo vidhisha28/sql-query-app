@@ -1,7 +1,5 @@
-// Simulated data service, replace with actual data fetching logic
 import Papa from 'papaparse';
 
-  // Assuming the CSV file is in the public folder of your React app
   const csvFilePath = '/mens_shoes_data.csv';
   
   export const fetchShoeData = async () => {
