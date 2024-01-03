@@ -12,7 +12,6 @@ function App() {
   const [database, setDatabase] = useState(null);
 
   useEffect(() => {
-    // Load the CSV data and initialize the database
     Papa.parse('/mens_shoes_data.csv', {
       download: true,
       header: true,

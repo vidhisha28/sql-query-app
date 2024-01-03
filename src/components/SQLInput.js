@@ -8,11 +8,21 @@ const SQLInput = ({ onQueryChange }) => {
     setQuery(event.target.value);
   };
 
-  const handleRunQuery = () => {
-    // Call a function to handle the query (you will implement this)
-    onQueryChange(query);
-  };
 
+  const handleRunQuery = () => {
+      if (database) {
+        try {
+          // Executes the SQL query
+          const results = executeQuery(database, sqlQuery);
+          setQueryResults(results);
+        } catch (error) {
+          console.error('Error executing query:', error);
+          // error handling
+        }
+      }
+    };
+  
+  
   return (
     <div>
       <textarea value={query} onChange={handleQueryChange} rows="4" cols="50" />
@@ -21,4 +31,6 @@ const SQLInput = ({ onQueryChange }) => {
   );
 };
 
+
 export default SQLInput;
+
